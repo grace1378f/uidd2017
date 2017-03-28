@@ -2,7 +2,52 @@
   <head><!--meta(non-content)data goes here-->
     <meta charset="utf-8">
     <title>Fintech_Home</title>
-<style>
+    
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js'></script>
+    <style>
+    #bar{
+  background:#3BB69F;
+  height:20px;
+  border-radius:10px;
+  position:fixed;
+  top:400px;
+  left:480px;
+}
+#bar_border{
+  background:transparent;
+  width:330px;
+  height:30px;
+  border-radius:20px;
+  border:2pt #727A79 solid;
+  box-shadow:1px 1px 3px 1px #727A79,2px 2px 8px 3px #B7C4C2;
+  position:fixed;
+  top:393px;
+  left:470px;
+}
+#loadtext{
+  width:200px;
+  color:#B7C4C2;
+  margin:320px auto;
+  font-family:century gothic;
+  font-size:20pt;
+}
+#loading_bg{
+  width:100%;
+  height:700px;
+  background:#ffffff;
+  position:fixed;
+  top:0;
+  z-index:9999;
+}
+.loading_logo{
+  width:300px;
+  margin:100px auto;
+}
+#loading_title{
+  position:relative;
+  top:-30px;
+  left:29px;
+}
 #top{
   box-sizing:border-box;
   height:70px;
@@ -13,10 +58,32 @@
 #icon{
   float:right;
 }
-#icon>img{
+#about_icon{
   width:40px;
   height:40px;
   margin:0px 20px;
+  transition:All 0.4s ease-in-out;
+}
+#service_icon{
+  width:40px;
+  height:40px;
+  margin:0px 20px;
+  transition:All 0.4s ease-in-out;
+}
+#news_icon{
+  width:40px;
+  height:40px;
+  margin:0px 20px;
+  transition:All 0.4s ease-in-out;
+}
+#con_icon{
+  width:40px;
+  height:40px;
+  margin:0px 20px;
+  transition:All 0.4s ease-in-out;
+}
+#icon>input:hover{
+   transform:scale(1.5);
 }
 body{
     background-color:#3BB69F;
@@ -103,6 +170,13 @@ li{
   width:300px;
   color:#ffffff;
   font-family:century gothic;
+  
+}
+li>img{
+  transition:All 1s ease-in-out;
+}
+li>img:hover{
+  transform:rotate(360deg);
 }
 #about_bottom{
   width:100%;
@@ -173,11 +247,29 @@ p{
 #FN{
   position:relative;
   left:20px;
+  transition:All 0.4s ease-in-out;
 }
+
 #TN{
   position:relative;
   top:10px;
   left:-20px;
+  transition:All 0.4s ease-in-out;
+}
+#EN{
+  transition:All 0.4s ease-in-out;
+}
+#FN:hover{
+  opacity:0.8;
+  transform:scale(1.1);
+}
+#TN:hover{
+  opacity:0.8;
+  transform:scale(1.1);
+}
+#EN:hover{
+  opacity:0.8;
+  transform:scale(1.1);
 }
 #line{
   position:relative;
@@ -269,25 +361,62 @@ textarea:-webkit-input-placeholder{
   top:-100px;
   right:100px;
 }
+#S:hover{
+opacity:0.8;
+}
 #R{
   position:relative;
   top:-101.8px;
   right:300px;
 
 }
-</style>
+#R:hover{
+  opacity:0.8;
+}
+    </style>
   </head>
   <body>
+    <div class="loading">
+      <div id="loading_bg">
+      <div class="loading_logo">
+        <img  src="https://imageshack.com/i/pn9ttXU3g">
+        <img  id="loading_title" src="https://imageshack.com/i/pmLU6elCj"> 
+      </div>
+      <div id="bar"></div>
+      <div id="bar_border"></div>  
+      <div id="loadtext">Loading...</div>  
+     </div>
+    </div>
     <!--home page-->
     <div id=top>
     <img id=logo src="https://imageshack.com/i/pn1CpBq6p">
       <div id="icon">
-      <img src="https://imageshack.com/i/pnXfDYfNj">
-      <img src="https://imageshack.com/i/pnmsreSUj">
-      <img src="https://imageshack.com/i/pmOncg5Aj">
-      <img src="https://imageshack.com/i/poXS5Jzdj">
+      <input type="image" id="about_icon" img src="https://imageshack.com/i/pnXfDYfNj">
+      <input type="image" id="service_icon" img src="https://imageshack.com/i/pnmsreSUj">
+      <input type="image" id="news_icon" img src="https://imageshack.com/i/pmOncg5Aj">
+      <input type="image" id="con_icon" img src="https://imageshack.com/i/poXS5Jzdj">
       </div>
+      <script>
+        $(function() {
+         $('#about_icon').click(function(){ 
+          $('html,body').animate({scrollTop:$('#about_bg').offset().top}, 800); 
+         });
+         $('#service_icon').click(function(){ 
+          $('html,body').animate({scrollTop:$('#service').offset().top}, 800); 
+         });
+         $('#news_icon').click(function(){ 
+          $('html,body').animate({scrollTop:$('#news_title').offset().top}, 800); 
+         });
+         $('#con_icon').click(function(){ 
+          $('html,body').animate({scrollTop:$('#contact_top').offset().top}, 800); 
+         });
+        });  
+      </script>
     </div>
+     <script type="text/javascript">
+       $('.loading').animate({'width':'10%'},50);
+       $('#bar').animate({'width':'30px'},50);
+     </script>
     <div id="bg">
       <div>
       <img id="tit" src="https://imageshack.com/i/pnEDc8tGp">
@@ -297,6 +426,9 @@ textarea:-webkit-input-placeholder{
       </div>
       <img id="hand" src="https://imageshack.com/i/poZJD33lp">
     </div>
+    <script type="text/javascript"> 
+      $('.loading').animate({'width':'20%'},50);
+    $('#bar').animate({'width':'60px'},50);</script>
     <!--about page-->
     <img id="about_bg" src="https://imageshack.com/i/pnmFYBmbj">
       <center>
@@ -304,7 +436,11 @@ textarea:-webkit-input-placeholder{
         <h2>We take the weights of your shoulders! </h2>
         <div id="about_p">
          FinTech, is an industry composed of companies that use new technology and innovation with available resources in order to compete in the marketplace of traditional financial institutions and intermediarues in the delivery of financial services. Financial technology companies consist of both startups and established financial and technology companies trying to replace or enhance the usage of financial services of incumbent companies.
-        </div>  
+        </div>
+         <script type="text/javascript">
+           $('.loading').animate({'width':'30%'},50);
+           $('#bar').animate({'width':'90px'},50);
+        </script>
     </center>
     <!--service page-->
     <div id="service">
@@ -327,14 +463,26 @@ textarea:-webkit-input-placeholder{
         </ul>
       </center>
       
-    </div>  
+    </div>
+    <script type="text/javascript"> 
+      $('.loading').animate({'width':'40%'},50);
+      $('#bar').animate({'width':'120px'},50);
+    </script>
     <div id=about_bottom>
     </div>
+     <script type="text/javascript"> 
+       $('.loading').animate({'width':'50%'},50);
+       $('#bar').animate({'width':'150px'},50);
+    </script>
     <!--news page-->
     <div id=news_title>
       <p>NEWS</p>PORTAL
       <img src="https://imageshack.com/i/pn1CpBq6p">
     </div>
+     <script type="text/javascript"> 
+       $('.loading').animate({'width':'60%'},50);
+       $('#bar').animate({'width':'180px'},50);
+    </script>
     <img id=news_bg src="https://imageshack.com/i/pohbRkH7j">
     <div id=what>
       <div id=line1>
@@ -344,6 +492,10 @@ textarea:-webkit-input-placeholder{
         FINTECH
       </div>  
     </div>
+    <script type="text/javascript"> 
+      $('.loading').animate({'width':'70%'},50);
+      $('#bar').animate({'width':'210px'},50);
+    </script>
     <div class=news>
     <img id=FN src="https://imageshack.com/i/pmsxT3odp">
     <img id=TN src="https://imageshack.com/i/pn1opiw4p">
@@ -351,11 +503,19 @@ textarea:-webkit-input-placeholder{
        <div id=line >
        </div>
     </div>
+    <script type="text/javascript"> 
+      $('.loading').animate({'width':'80%'},50);
+      $('#bar').animate({'width':'240px'},50);
+    </script>
     <!--contact page-->
     <div id=contact_top>
     <h4>contact</h4>
       <div id=contact_text>Please feel free to contact us via any of the details in the form below and we will get back you as soon as possible. </div>  
     </div>
+     <script type="text/javascript"> 
+       $('.loading').animate({'width':'90%'},50);
+       $('#bar').animate({'width':'270px'},50);
+    </script>
     <div id=contact_left>
       06-275-7575
       <br>
@@ -374,5 +534,12 @@ textarea:-webkit-input-placeholder{
       <img id=S src="https://imageshack.com/i/pmzLO6rMp">
       <img id=R src="https://imageshack.com/i/pnvNw1lUp">
     </div>
+     <script type="text/javascript"> 
+       $('.loading').animate({'width':'100%'},50);
+       $('#bar').animate({'width':'300px'},50);
+       $(document).ready(function(){ 
+                  $('.loading').fadeOut(50);
+       });
+</script>
   </body>
 </html>
